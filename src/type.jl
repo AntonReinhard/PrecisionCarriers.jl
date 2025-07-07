@@ -48,7 +48,7 @@ mutable struct PrecisionCarrier{T <: AbstractFloat} <: AbstractFloat
         various constructors from single arguments.
     """
     function PrecisionCarrier{T}(x, b) where {T <: AbstractFloat}
-        @assert T != BigFloat "can not create a PrecisionCarrier with BigFloat"
+        #@assert T != BigFloat "can not create a PrecisionCarrier with BigFloat"
         @assert !(T <: PrecisionCarrier) "can not create a PrecisionCarrier with $T"
         return new{T}(x, b)
     end
