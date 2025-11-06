@@ -1,0 +1,25 @@
+{
+    "creators": [
+        {
+            "name": "Reinhard, Anton",
+            "affiliation": "Helmholtz-Zentrum Dresden-Rossendorf, CASUS",
+            "orcid": "0009-0004-6483-2137"
+        },
+        {
+            "name": "Hernandez Acosta, Uwe",
+            "affiliation": "Helmholtz-Zentrum Dresden-Rossendorf, CASUS",
+            "orcid": "0000-0002-6182-1481"
+        },
+        {
+            "name": "Bussmann, Michael",
+            "affiliation": "Helmholtz-Zentrum Dresden-Rossendorf, CASUS",
+            "orcid": "0000-0002-8258-3881"
+        }
+    ],
+    "title": "PrecisionCarriers.jl",
+    "access_right": "open",
+    "upload_type": "software",
+    "license": "MIT",
+    "pub_id": "42153",
+    "description": "A julia package to find imprecisions in chains of arithmetic functions."
+}
