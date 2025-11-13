@@ -53,3 +53,7 @@ This method, while helpful in many cases, is not universal and should be used wi
 ## License
 
 [MIT](LICENSE) © Anton Reinhard
+
+## Acknowledgements and Funding
+
+This work was partly funded by the Center for Advanced Systems Understanding (CASUS) that is financed by Germany’s Federal Ministry of Research, Technology and Space (BMFTR) and by the Saxon Ministry for Science, Culture and Tourism (SMWK) with tax funds on the basis of the budget approved by the Saxon State Parliament.
