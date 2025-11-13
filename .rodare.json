@@ -6,14 +6,14 @@
             "orcid": "0009-0004-6483-2137"
         },
         {
-            "name": "Hernandez Acosta, Uwe",
-            "affiliation": "Helmholtz-Zentrum Dresden-Rossendorf, CASUS",
-            "orcid": "0000-0002-6182-1481"
-        },
-        {
             "name": "Bussmann, Michael",
             "affiliation": "Helmholtz-Zentrum Dresden-Rossendorf, CASUS",
             "orcid": "0000-0002-8258-3881"
+        },
+        {
+            "name": "Hernandez Acosta, Uwe",
+            "affiliation": "Helmholtz-Zentrum Dresden-Rossendorf, CASUS",
+            "orcid": "0000-0002-6182-1481"
         }
     ],
     "title": "PrecisionCarriers.jl",
