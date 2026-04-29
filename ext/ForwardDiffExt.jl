@@ -91,19 +91,4 @@ function _dual_prec(x::Dual{T, VR, 0}, big::Dual{T, VB, 0}) where {T, VR, VB}
     )
 end
 
-# overload constructor
-function PrecisionCarriers.P(v1::Dual{Nothing}, v2::Dual{Nothing})
-    return Dual(
-        PrecisionCarrier(v1.value, v2.value),
-        Partials{0, PrecisionCarrier{typeof(v1.value)}}(())
-    )
-end
-
-function PrecisionCarriers.P(v1::Dual{}, v2::Dual{})
-    return Dual(
-        PrecisionCarrier(v1.value, v2.value),
-        Partials(PrecisionCarrier.(v1.partials.values, v2.partials.values))
-    )
-end
-
 end

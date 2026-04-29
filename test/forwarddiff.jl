@@ -43,3 +43,13 @@ model(t, p) = p[1] * exp.(-p[2] * t)
     @test eltype(fit.resid) == P
     @test fit.converged
 end
+
+@testset "Raw Dual Numbers ($P)" for P in PREC_TYPES
+    d = ForwardDiff.Dual(eltype(P)(1.0))
+    p = P(1.0)
+
+    @test typeof(d * p) <: ForwardDiff.Dual{Nothing, P}
+    @test typeof(p / d) <: ForwardDiff.Dual{Nothing, P}
+    @test typeof(d + p) <: ForwardDiff.Dual{Nothing, P}
+    @test typeof(p - d) <: ForwardDiff.Dual{Nothing, P}
+end
