@@ -22,6 +22,7 @@ RandomExt = "Random"
 [compat]
 DoubleFloats = "1.4.3"
 ForwardDiff = "1.3.3"
+LsqFit = "0.16.0"
 Printf = "1.10"
 ProgressMeter = "1.10.4"
 Random = "1.10"
@@ -35,10 +36,11 @@ julia = "1.10"
 [extras]
 DoubleFloats = "497a8b3b-efae-58df-a0af-a86822472b78"
 ForwardDiff = "f6369f11-7733-5829-9624-2563aa707210"
+LsqFit = "2fda8390-95c7-5789-9bda-21331edee243"
 Random = "9a3f8284-a2c9-5f02-9a11-845980a1fd5c"
 Test = "8dfed614-e22c-5e08-85e1-65c5234f0b40"
 TestItemRunner = "f8b46487-2199-4994-9208-9a1283c18c0a"
 TestItems = "1c621080-faea-4a02-84b6-bbd5e436b8fe"
 
 [targets]
-test = ["Random", "DoubleFloats", "ForwardDiff", "TestItems", "TestItemRunner", "Test"]
+test = ["Random", "DoubleFloats", "ForwardDiff", "LsqFit", "TestItems", "TestItemRunner", "Test"]

@@ -12,21 +12,21 @@ macro _binary_dual_function(operator)
     return Meta.parse("
     begin
         function Base.:$(operator)(p1::Dual{T, <:P}, p2::P; kw...) where T
-            (p1_x, p1_b) = duals(p1)
-            res = dual_prec($(operator)(p1_x, p2.x; kw...), $(operator)(p1_b, p2.big; kw...))
+            (p1_x, p1_b) = _duals(p1)
+            res = _dual_prec($(operator)(p1_x, p2.x; kw...), $(operator)(p1_b, p2.big; kw...))
             return res
         end
         function Base.:$(operator)(p1::P, p2::Dual{T, <:P}; kw...) where T
-            (p2_x, p2_b) = duals(p2)
-            res = dual_prec($(operator)(p1.x, p2_x; kw...), $(operator)(p1.big, p2_b; kw...))
+            (p2_x, p2_b) = _duals(p2)
+            res = _dual_prec($(operator)(p1.x, p2_x; kw...), $(operator)(p1.big, p2_b; kw...))
             return res
         end
         function Base.:$(operator)(p1::Dual{T}, p2::P; kw...) where T
-            res = dual_prec($(operator)(p1, p2.x; kw...), $(operator)(p1, p2.big; kw...))
+            res = _dual_prec($(operator)(p1, p2.x; kw...), $(operator)(p1, p2.big; kw...))
             return res
         end
         function Base.:$(operator)(p1::P, p2::Dual{T}; kw...) where T
-            res = dual_prec($(operator)(p1.x, p2; kw...), $(operator)(p1.big, p2; kw...))
+            res = _dual_prec($(operator)(p1.x, p2; kw...), $(operator)(p1.big, p2; kw...))
             return res
         end
     end
@@ -67,7 +67,7 @@ end
 @_binary_dual_comparison isapprox
 
 # get 2 dual numbers (Real and Big) from precision carrier
-function duals(d::Dual{T}) where {T}
+function _duals(d::Dual{T}) where {T}
     dual = d.value
     partials = d.partials
     return (
@@ -77,14 +77,14 @@ function duals(d::Dual{T}) where {T}
 end
 
 # get one dual number of P from x dual and big dual number
-function dual_prec(x::Dual{T, VR}, big::Dual{T, VB}) where {T, VR, VB}
+function _dual_prec(x::Dual{T, VR}, big::Dual{T, VB}) where {T, VR, VB}
     return Dual{T}(
         P(x.value, big.value),
         Partials(P.(x.partials.values, big.partials.values))
     )
 end
 
-function dual_prec(x::Dual{T, VR, 0}, big::Dual{T, VB, 0}) where {T, VR, VB}
+function _dual_prec(x::Dual{T, VR, 0}, big::Dual{T, VB, 0}) where {T, VR, VB}
     return Dual{T, P{VR}, 0}(
         P(x.value, big.value),
         Partials{0, P{VR}}(())

@@ -39,6 +39,10 @@ end
     include("doublefloats.jl")
 end
 
+@testitem "forwarddiff" begin
+    include("forwarddiff.jl")
+end
+
 @testitem "bench/utils" begin
     include("bench/utils.jl")
 end
