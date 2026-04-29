@@ -21,11 +21,11 @@ macro _binary_function(operator)
             return res
         end
         function Base.:$(operator)(p1::P, p2::Real; kw...)
-            res =  P($(operator)(p1.x, p2; kw...), $(operator)(p1.big, p2; kw...))
+            res = P($(operator)(p1.x, p2; kw...), $(operator)(p1.big, p2; kw...))
             return res
         end
         function Base.:$(operator)(p1::Integer, p2::P; kw...)
-            res =  P($(operator)(p1, p2.x; kw...), $(operator)(p1, p2.big; kw...))
+            res = P($(operator)(p1, p2.x; kw...), $(operator)(p1, p2.big; kw...))
             return res
         end
         function Base.:$(operator)(p1::P, p2::Integer; kw...)
