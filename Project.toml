@@ -1,6 +1,6 @@
 name = "PrecisionCarriers"
 uuid = "5b00bbae-6f32-4368-a198-a7942af0a543"
-version = "0.2.1"
+version = "0.2.2"
 authors = ["Anton Reinhard <anton.reinhard@proton.me>"]
 
 [deps]
